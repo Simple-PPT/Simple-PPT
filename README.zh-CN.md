@@ -1,4 +1,4 @@
-Language : [en](.\README.md) | zh-CN
+Language : [en](./README.md) | zh-CN
 <h1 align="center">Auto-make-PPT</h1>
 
 <div align="center">
