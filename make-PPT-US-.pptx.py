@@ -38,7 +38,7 @@ if incase_OK == "y" or incase_OK  == "Y":
     make_PPT(style = pd.read_excel("./info.xlsx",sheet_name = "read",usecols = ['style(1 - 11)']),name = pd.read_excel("./info.xlsx",sheet_name = "read",usecols = ['PPT\'s name(string)']),title_input=pd.read_excel("./info.xlsx",sheet_name = "read",usecols = ['title(string)']),subtitle_input=pd.read_excel("./info.xlsx",sheet_name = "read",usecols=['subtitle(string)']))
 elif incase_OK == "n" or incase_OK == "N":
     wait().to_wait()
-    incase_OK_1 = input("Are you write info.xlsx OK? (y/n):")
+    incase_OK_1 = input("Have you written info.xlsx?(y/n):")
     if incase_OK_1 == "y" or incase_OK_1 == "Y":
         make_PPT(style = pd.read_excel("./info.xlsx",sheet_name = "read",usecols = ['style(1 - 11)']),name = pd.read_excel("./info.xlsx",sheet_name = "read",usecols = ['PPT\'s name(string)']),title_input=pd.read_excel("./info.xlsx",sheet_name = "read",usecols = ['title(string)']),subtitle_input=pd.read_excel("./info.xlsx",sheet_name = "read",usecols=['subtitle(string)']))
     else:
