@@ -6,7 +6,7 @@ Language : US | [CN](./README.zh-CN.md)
 <br/>
 </div>
 
-* Our project is under development, using <code>Python</code> developed, but for some reason, the project has not been completed, I hope you will join us.
+* Our project is under development, using <code>Python</code> developed, but for some reason, the project has not been completed, I hope you will join us.(The other languages are left while packing.)
 
 <h2 align="center">Introduction</h2>
 
