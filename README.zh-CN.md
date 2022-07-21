@@ -1,4 +1,4 @@
-Language : [us](./README.md) | cn
+Language : [US](./README.md) | CN
 <h1 align="center">Auto-make-PPT</h1>
 
 <div align="center">
@@ -7,6 +7,15 @@ Language : [us](./README.md) | cn
 <br/>
 </div>
 
-* 我们(我)在github上面发布了这一开源项目，并希望这一开源项目能帮助某一行业的人们，我们(我)希望这一项目能取得巨大成功，并帮助那些人。
+* 我们的项目正在开发中，是用<code>Python</code>开发的，但是因为某些原因，项目暂未完成，希望您加入我们。
+<h2 align="center">简介</h2>
+觉得制作PPT太烦?一下子要做许多的PPT?如果你符合这些条件，你可以来尝试我们的程序:Auto-make-PPT。
 
-* 此项目暂未开始，希望你(你们)加入我(我们)!
+它可以帮助您更快的完成PPT,要是不满意，您可以修改掉你不满意的地方——这大大提升了您制作PPT的效率。
+<h3 align="center">制作流程</h3>
+
+在自动制作PPT之前，您得先按照它的提示填写***自动创建***的***info.xlsx 文件***，然后保存，并按照它的提示一步一步的创建就完成了！
+
+<h3 align="center">有关反馈</h3>
+
+你可以在评论区里留言，或者在作者的邮箱***2210067895@qq.com***里反馈。
