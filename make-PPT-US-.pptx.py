@@ -6,7 +6,7 @@ import pandas as pd
 import time
 from tqdm import tqdm
 import numpy as np
-from openpyxl import *
+from openpyxl import Workbook,load_workbook
 
 class TimeError(Exception):
     pass
