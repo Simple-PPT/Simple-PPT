@@ -7,7 +7,6 @@ import time
 from tqdm import tqdm
 import numpy as np
 from openpyxl import Workbook,load_workbook
-from cx_Freeze import setup,Executable
 
 class TimeError(Exception):
     pass
