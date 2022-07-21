@@ -1,0 +1,12 @@
+{
+  "Editor": {
+    "file_extension_modes": {
+      ".txt": "Brainfuck"
+    },
+    "codemirror_options": {
+      "lineNumbers": true,
+      "vimMode": false,
+      "keyMap": "default"
+    }
+  }
+}

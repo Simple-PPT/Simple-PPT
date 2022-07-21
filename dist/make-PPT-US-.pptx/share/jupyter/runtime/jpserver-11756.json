@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 11756,
+  "port": 8888,
+  "root_dir": "D:\\xuexi",
+  "secure": false,
+  "sock": "",
+  "token": "9be428c2196cb5b18f19295332ed11134a9432b3b5206bb6",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

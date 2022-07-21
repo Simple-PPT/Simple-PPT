@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 13676,
+  "port": 8888,
+  "root_dir": "D:\\my-study--github",
+  "secure": false,
+  "sock": "",
+  "token": "9d73c580ef953f026b179b11e8d3d05cbb8160f9020b859d",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}
