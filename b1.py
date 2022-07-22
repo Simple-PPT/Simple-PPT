@@ -3,7 +3,7 @@ print("Note:info-user.xlsx should have a sheet,the sheet's name is'user'")
 
 from pptx import Presentation
 import pandas as pd
-import time
+import time,warnings
 from tqdm import tqdm
 import numpy as np
 from openpyxl import *
@@ -25,8 +25,8 @@ class wait(object):
             print(pd.read_excel('./info.xlsx','read'))
             for i in tqdm(range(int(self.wait_time))):
                 time.sleep(1)
-        except Exception as e:
-            print(e)
+        except:
+            warnings.showwarning(f"You can't input {type(self.wait_time)}!",category = UserWarning,lineno = 26,filename = 'b1.py')
 
 def make_PPT(style,name,title_input,subtitle_input):
     ppt =Presentation()
@@ -42,9 +42,12 @@ incase_OK = input("Are you write info.xlsx yet? (y/n):")
 while True:
     def scaner():
         if incase_OK == "y" or incase_OK  == "Y":
-            loadwb = load_workbook('./info-user.xlsx')
-            loadsheet = loadwb['Sheet1']
-            make_PPT(style = int((loadsheet.cell(row = 2,column = 2)).value),name = str((loadsheet.cell(row = 2,column = 3)).value),title_input=(loadsheet.cell(row = 2,column = 4)).value,subtitle_input=(loadsheet.cell(row = 2,column = 5)).value)
+            try:
+                loadwb = load_workbook('./info-user.xlsx')
+                loadsheet = loadwb['Sheet1']
+                make_PPT(style = int((loadsheet.cell(row = 2,column = 2)).value),name = str((loadsheet.cell(row = 2,column = 3)).value),title_input=(loadsheet.cell(row = 2,column = 4)).value,subtitle_input=(loadsheet.cell(row = 2,column = 5)).value)
+            except:
+                warnings.showwarning("Can't find 'info-user.xlsx'",category = ResourceWarning,filename = 'b1.py', lineno = 46)
     if incase_OK == "n" or incase_OK == "N":
         wait().to_wait()
         incase_OK = input("Are you write info.xlsx yet? (y/n):")
