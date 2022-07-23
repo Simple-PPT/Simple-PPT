@@ -1,7 +1,5 @@
 print("Note:Before make a PPT(.pptx) file,please make the info-user.xlsx file first.")
 
-from tkinter import *
-from tkinter import ttk
 from pptx import Presentation
 import pandas as pd
 import time,warnings
@@ -16,7 +14,11 @@ exda = pd.DataFrame(
     'style(1 - 11)':1,
     'PPT\'s name(string)':'write',
     'title(string)':'write',
-    'subtitle(string)':'write'
+    'subtitle(string)':'write',
+    'text style(1 - 11)': 1,
+    'Do you have text title(Yes/No)':'No',
+    'text title(optional)(string)':'write',
+    'text(string)':'write'
     },
     index = [0]
 )
@@ -31,14 +33,22 @@ class wait(object):
         except:
             warnings.showwarning(f"You can't input {type(self.wait_time)}!",category = UserWarning,lineno = 26,filename = 'b1.py')
 
-def make_PPT(style,name,title_input,subtitle_input):
-    ppt =Presentation()
+def make_PPT(many:int,style:int,name:str,title_input:str,subtitle_input:str,every_style:int,have_title,title_E_text:str,word:str):
+    ppt = Presentation()
     to_int_style = np.array(style).item()
     title_slide = ppt.slides.add_slide(ppt.slide_layouts[to_int_style - 1])
     title = title_slide.shapes.title
     title.text = title_input
     subtitle = title_slide.placeholders[1]
     subtitle.text = subtitle_input
+    for i in range(1,many):
+        to_int_ES = np.array(every_style).item()
+        slide = ppt.slides.add_slide(ppt.slide_layouts[to_int_ES - 1])
+        Etitle = slide.shapes.title
+        if have_title == "Yes":
+            Etitle.text = title_E_text
+        Eword = slide.placeholders[1]
+        Eword.text = word
     ppt.save(str(name) + ".pptx")
 wait().to_wait()
 incase_OK = input("Are you write info.xlsx yet? (y/n):")
@@ -46,7 +56,7 @@ while True:
     def scaner():
         loadwb = load_workbook('./info.xlsx')
         loadsheet = loadwb['read']
-        make_PPT(style = int((loadsheet.cell(row = 2,column = 2)).value),name = str((loadsheet.cell(row = 2,column = 3)).value),title_input=(loadsheet.cell(row = 2,column = 4)).value,subtitle_input=(loadsheet.cell(row = 2,column = 5)).value)
+        make_PPT(many = int(loadsheet.cell(2,1).value),style = int((loadsheet.cell(row = 2,column = 2)).value),name = str((loadsheet.cell(row = 2,column = 3)).value),title_input=(loadsheet.cell(row = 2,column = 4)).value,subtitle_input=(loadsheet.cell(row = 2,column = 5)).value,every_style = int(loadsheet.cell(row = 2,column = 6).value),have_title = (loadsheet.cell(2,7)).value,title_E_text= str((loadsheet.cell(2,8)).value),word = str((loadsheet.cell(2,9)).value))
     if incase_OK == "y" or incase_OK == "Y":
         scaner()
         exit()

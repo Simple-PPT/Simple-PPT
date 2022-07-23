@@ -1,12 +1,12 @@
 Language : US | [CN](./README.zh-CN.md)
 <h1 align="center">Auto-make-PPT</h1>
 <div align="center">
-<img src = "https://img.shields.io/badge/version-0.0.1b2-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-b2"/>
+<img src = "https://img.shields.io/badge/version-0.0.1b3-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-b3"/>
 <img src = "https://img.shields.io/badge/Powered%20by-YangZhenxun-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "Powered by YangZhenxun"/>
 <br/>
 </div>
 
-* Our project is under development, using <code>Python</code> developed, but for some reason, the project has not been completed, I hope you will join us.(The other languages are left while packing.)
+* Our project is under development, using <code>Python</code> developed, I hope you will join us.(The other languages are left while packing.)
 
 <h2 align="center">Introduction</h2>
 
