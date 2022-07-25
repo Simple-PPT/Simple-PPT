@@ -1,10 +1,18 @@
-import sys
 from cx_Freeze import setup, Executable
 
-build_exe_options = {'packages': [], 'excludes': []}
+# Dependencies are automatically detected, but it might need
+# fine tuning.
+build_options = {'packages': [], 'excludes': []}
 
-setup(  name = 'make-PPT-b3.py',
-        version = '0.0.1b3',
-        description = 'It can make a PPT for you',
-        options = {'build_exe': build_exe_options},
-        executables = [Executable('./b3.py')])
+import sys
+base = 'Win32GUI' if sys.platform=='win32' else None
+
+executables = [
+    Executable('D:\\Auto-make-PPT\\b4_GUI.py', base=base, target_name = 'make-PPT-US.exe')
+]
+
+setup(name='Auto-make-PPT',
+      version = '0.0.1b4',
+      description = '',
+      options = {'build_exe': build_options},
+      executables = executables)
