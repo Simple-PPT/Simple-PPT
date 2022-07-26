@@ -1,14 +1,17 @@
-import time,rc1_system,requests,webbrowser,os
-
-from sqlalchemy import column
+import time,rc2_system as rc2_system,requests,os
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import *
 
-rc1_system.system().make_excel()
+rc2_system.system().make_excel()
 main_window = Tk(className=" Auto make PPT's GUI")
+main_window.geometry('600x300')
 frame = ttk.Frame(main_window,padding=10).grid()
-version = ttk.Label(frame,text = "Version:0.0.1 -rc1").grid(row = 0,column = 0)
+menubar = Menu(frame)
+S_Menu = Menu(frame,tearoff = 0)
+S_Menu.add_command(label = 'English')
+menubar.add_cascade(label = "Language",menu = S_Menu)
+version = ttk.Label(frame,text = "Version:0.0.1 -rc2").grid(row = 0,column = 0)
 label = ttk.Label(frame,text = "Please input your write time(s):").grid(row = 1,column = 0)
 def entry_get():
     try:
@@ -24,15 +27,11 @@ def bar_star():
         main_window.update()
         time.sleep(1)
 
-def bar_1():
-    while True:
-        main_window.update()
-        time.sleep(0.1)
 def start_if():
     r = askyesno('Yes(Y)|No(N)','Have you finished writing the info.xlsx file?')
     if str(r) == 'True':
         showinfo('Done!','Your PPT is OK!')
-        rc1_system.system().read_and_make()
+        rc2_system.system().read_and_make()
     else:
         while True:
             showinfo('info','Please input write time frist. ')
@@ -41,7 +40,7 @@ def start_if():
             re = askyesno('Yes(Y)|No(N)','Have you finished writing the info.xlsx file?')
             if str(re) == 'True':
                 showinfo('Done!','Your PPT is OK!')
-                rc1_system.system().read_and_make()
+                rc2_system.system().read_and_make()
             else:
                 pass
 
@@ -63,7 +62,6 @@ def check_news():
             new_time = time.mktime(time.strptime(all_info["updated_at"], "%Y-%m-%dT%H:%M:%SZ"))
             if not old_time:
                 old_time = all_info["updated_at"]
-                showinfo('This version','This version is new!')
             print(new_time, old_time)
             if new_time > old_time:
                 old_time = new_time
@@ -87,20 +85,18 @@ def check_news():
                 rres = askyesno('Yes(Y)|No(N)','Do you want download new version?')
                 if str(rres) == 'True':
                     download_newfile(name)
-    except Exception as e:
+            else:
+                showinfo('OK','Your version is new!')
+    except:
         showerror('Error','\'github.com\' has no response')
-        raise Exception(e)
 entry = ttk.Entry(frame,width = 35)
 entry.grid(row = 1,column = 1)
 
 get = ttk.Button(frame,text = "OK",command = lambda:[entry_get(),bar_star(),start_if()]).grid(row = 2,column = 0)
-check_new = ttk.Button(frame,text = "Check new",command = lambda:[bar_1,check_news()]).grid(row = 0,column = 1)
+check_new = ttk.Button(frame,text = "Check new",command = check_news).grid(row = 0,column = 1)
 bar = ttk.Progressbar(frame,length = 150,mode = 'determinate')
 bar.grid(row = 3,column = 0)
 bar['value'] = 0
-bar1 = ttk.Progressbar(frame,mode = 'indeterminate')
-bar1.grid(row = 3,column = 1)
 
-
+main_window.config(menu = menubar)
 main_window.mainloop()
-

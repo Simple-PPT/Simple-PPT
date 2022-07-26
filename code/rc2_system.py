@@ -2,7 +2,7 @@ from pptx import Presentation
 import pandas as pd
 import numpy as np
 from openpyxl import *
-import time,sys
+import sys
 
 class system(object):
     def make_excel(self):
