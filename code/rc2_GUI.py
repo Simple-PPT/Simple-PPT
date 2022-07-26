@@ -69,7 +69,7 @@ def check_news():
             else:
                 return False
         def download_newfile(name):
-            r = requests.get(download_url)
+            r = requests.get(download_url,timeout = 5)
             name = name.replace('/', '_') + '.zip'
             name = 'Auto-make-PPT.zip'
             with open("./" + name,'wb') as f:
