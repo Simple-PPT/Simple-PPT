@@ -1,4 +1,4 @@
-import time,rc2_system as rc2_system,requests,os
+import time,rc2_system,requests,os
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import *
