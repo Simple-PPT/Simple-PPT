@@ -1,7 +1,8 @@
-import time,rc2_system,requests,os
+import time,requests,os
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import *
+from . import rc2_system
 
 rc2_system.system().make_excel()
 main_window = Tk(className=" Auto make PPT's GUI")
