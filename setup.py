@@ -8,11 +8,11 @@ import sys
 base = 'Win32GUI' if sys.platform=='win32' else None
 
 executables = [
-    Executable('D:\\Auto-make-PPT\\b4_GUI.py', base=base, target_name = 'make-PPT-US.exe')
+    Executable('D:\\Auto-make-PPT\\rc1_GUI.py', base=base, target_name = 'make-PPT-US.exe')
 ]
 
 setup(name='Auto-make-PPT',
-      version = '0.0.1b4',
+      version = '0.0.1-rc1',
       description = '',
       options = {'build_exe': build_options},
       executables = executables)
