@@ -38,8 +38,8 @@ load_language()
 frame = ttk.Frame(main_window,padding=10).grid()
 menubar = Menu(frame)
 S_Menu = Menu(frame,tearoff = 0)
-S_Menu.add_command(label = 'en-US',command = write_en_US)
-S_Menu.add_command(label = 'zh-Hans-CN',command = write_zh_Hans_CN)
+S_Menu.add_command(label = 'English',command = write_en_US)
+S_Menu.add_command(label = '中文（简体）',command = write_zh_Hans_CN)
 menubar.add_cascade(label = all[0],menu = S_Menu)
 version = ttk.Label(frame,text = all[1] + ":0.0.1-rc2").grid(row = 0,column = 0)
 label = ttk.Label(frame,text = all[2]).grid(row = 1,column = 0)
@@ -99,7 +99,6 @@ def check_news():
         def download_newfile(name):
             r = requests.get(download_url,timeout = 5)
             name = name.replace('/', '_') + '.zip'
-            name = 'Auto-make-PPT.zip'
             with open("./" + name,'wb') as f:
                 f.write(r.content)
 
