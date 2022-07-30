@@ -1,11 +1,11 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import *
-from turtle import end_fill
-import requests,pickle
+import requests
 
 language = ''
 download_url = 'https://github.com/YangZhenxun/Auto-make-PPT/archive/master.zip'
+sLuJing = ''
 CL_window = Tk(className = 'Language')
 
 def CL(*args):
@@ -33,8 +33,8 @@ box.current(0)
 but = ttk.Button(frame,text = "OK",command = lambda: [CL(),bu(),CL_window.destroy()]).grid(row = 1,column = 0)
 CL_window.mainloop()
 
-zh_Hans_CN_all = ['下载','\n现在在下载Auto-make-PPT.zip中......\n','\'github.com\'没有响应','错误','重新下载','下载完成！正在退出......','完成！']
-en_US_all = [' Download','\nNow download Auto-make-PPT.zip...\n','\'github.com\'has no response','Error','Download again','Download completed! Now is exiting......','Done!']
+zh_Hans_CN_all = ['下载','\n现在在下载Auto-make-PPT.zip中......\n','\'github.com\'没有响应','错误','重新下载','下载完成！正在退出......','完成！','下一步','请输入下载到哪里：','选择下载路径']
+en_US_all = [' Download','\nNow download Auto-make-PPT.zip...\n','\'github.com\'has no response','Error','Download again','Download completed! Now is exiting......','Done!','next','Please input download where:','Choose download where']
 all = []
 def spado():
     global all
