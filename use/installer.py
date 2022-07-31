@@ -1,12 +1,14 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import *
-import requests
+import requests,os,time,socket
 
 language = ''
 download_url = 'https://github.com/YangZhenxun/Auto-make-PPT/archive/master.zip'
 sLuJing = ''
 CL_window = Tk(className = 'Language')
+host = ''
+port = 8080
 
 def CL(*args):
     global language
@@ -33,8 +35,8 @@ box.current(0)
 but = ttk.Button(frame,text = "OK",command = lambda: [CL(),bu(),CL_window.destroy()]).grid(row = 1,column = 0)
 CL_window.mainloop()
 
-zh_Hans_CN_all = ['下载','\n现在在下载Auto-make-PPT.zip中......\n','\'github.com\'没有响应','错误','重新下载','下载完成！正在退出......','完成！','下一步','请输入下载到哪里：','选择下载路径']
-en_US_all = [' Download','\nNow download Auto-make-PPT.zip...\n','\'github.com\'has no response','Error','Download again','Download completed! Now is exiting......','Done!','next','Please input download where:','Choose download where']
+zh_Hans_CN_all = ['下载','\n现在在下载Auto-make-PPT.zip中......\n','\'github.com\'没有响应','错误','重新下载','下载完成！正在退出......','完成！','下一步','请输入下载到哪里：','选择下载路径','错误','没有此路径！','选择']
+en_US_all = [' Download','\nNow download Auto-make-PPT.zip...\n','\'github.com\'has no response','Error','Download again','Download completed! Now is exiting......','Done!','next','Please input download where:','Choose download where','Error','Can\'t find this path!','Choose']
 all = []
 def spado():
     global all
@@ -48,7 +50,7 @@ def bar_start(name:str = 'Auto-make-PPT'):
         for i in range(1):
             r = requests.get(download_url,timeout = 5)
             name = name.replace('/', '_') + '.zip'
-            with open("./" + name,'wb') as f:
+            with open(sLuJing + name,'wb') as f:
                 f.write(r.content)
             bar['value'] = i + 1
             main_window.update()
@@ -57,6 +59,24 @@ def bar_start(name:str = 'Auto-make-PPT'):
     except:
         showerror(all[3],all[2])
 spado()
+def path_get():
+    global sLuJing
+    sLuJing = entry.get()
+    while True:
+        if os.path.exists(sLuJing):
+            sLuJing = sLuJing
+            break
+        else:
+            PG_window.destroy()
+            
+PG_window = Tk(className = all[9])
+frame = ttk.Frame(PG_window,padding = 10).grid()
+label_1 = ttk.Label(frame,text = all[8]).grid(row = 0,column = 0)
+entry = ttk.Combobox(frame,width = 20,values = (all[12]))
+entry.grid(row = 0,column = 1)
+butto = ttk.Button(frame,text = all[7],command = lambda : [path_get(),PG_window.destroy()])
+butto.grid(row = 1,column = 0)
+PG_window.mainloop()
 main_window = Tk(className = all[0])
 frame1 = ttk.Frame(main_window,padding = 10).pack()
 label = ttk.Label(frame1,text = all[1]).pack()

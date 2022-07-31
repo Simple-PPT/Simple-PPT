@@ -1,3 +1,4 @@
+import sys
 import time,requests,os,rc2_system,pickle
 from tkinter import *
 from tkinter import ttk
@@ -59,8 +60,9 @@ def bar_star():
 def start_if():
     r = askyesno(all[7],all[8])
     if str(r) == 'True':
-        showinfo(all[9],all[10])
         rc2_system.system().read_and_make()
+        showinfo(all[9],all[10])
+        sys.exit()
     else:
         while True:
             showinfo(all[11],all[2])
@@ -68,8 +70,9 @@ def start_if():
             bar_star()
             re = askyesno(all[7],all[8])
             if str(re) == 'True':
-                showinfo(all[9],all[10])
                 rc2_system.system().read_and_make()
+                showinfo(all[9],all[10])
+                sys.exit()
             else:
                 pass
 

@@ -2,7 +2,6 @@ from pptx import Presentation
 import pandas as pd
 import numpy as np
 from openpyxl import *
-import sys
 
 class system(object):
     def make_excel(self):
@@ -42,4 +41,3 @@ class system(object):
         self.loadwb = load_workbook("./info.xlsx")
         self.loadsheet = self.loadwb['read']
         self.make_PPT(many = int(self.loadsheet.cell(2,1).value),style = int((self.loadsheet.cell(row = 2,column = 2)).value),name = str((self.loadsheet.cell(row = 2,column = 3)).value),title_input=(self.loadsheet.cell(row = 2,column = 4)).value,subtitle_input=(self.loadsheet.cell(row = 2,column = 5)).value,every_style = int(self.loadsheet.cell(row = 2,column = 6).value),have_title = (self.loadsheet.cell(2,7)).value,title_E_text= str((self.loadsheet.cell(2,8)).value),word = str((self.loadsheet.cell(2,9)).value))
-        sys.exit()
