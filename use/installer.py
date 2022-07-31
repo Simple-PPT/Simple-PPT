@@ -1,14 +1,13 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import *
+from tkinter.filedialog import *
 import requests,os,time,socket
 
 language = ''
 download_url = 'https://github.com/YangZhenxun/Auto-make-PPT/archive/master.zip'
 sLuJing = ''
 CL_window = Tk(className = 'Language')
-host = ''
-port = 8080
 
 def CL(*args):
     global language
@@ -49,32 +48,26 @@ def bar_start(name:str = 'Auto-make-PPT'):
     try:
         for i in range(1):
             r = requests.get(download_url,timeout = 5)
-            name = name.replace('/', '_') + '.zip'
-            with open(sLuJing + name,'wb') as f:
+            with open(sLuJing,'wb') as f:
                 f.write(r.content)
             bar['value'] = i + 1
             main_window.update()
         showinfo(all[6],all[5])
         main_window.destroy()
-    except:
-        showerror(all[3],all[2])
+    except Exception as e:
+        showerror(all[10],all[2])
+
 spado()
-def path_get():
+def savefile():
     global sLuJing
-    sLuJing = entry.get()
-    while True:
-        if os.path.exists(sLuJing):
-            sLuJing = sLuJing
-            break
-        else:
-            PG_window.destroy()
-            
+    sLuJing = asksaveasfilename(defaultextension = '.zip',filetypes = [('zip file','.zip')],initialdir = '',initialfile ='Auto-make-PPT',title = all[9])
+
 PG_window = Tk(className = all[9])
 frame = ttk.Frame(PG_window,padding = 10).grid()
 label_1 = ttk.Label(frame,text = all[8]).grid(row = 0,column = 0)
-entry = ttk.Combobox(frame,width = 20,values = (all[12]))
+entry = ttk.Button(frame,text = all[12],command = savefile)
 entry.grid(row = 0,column = 1)
-butto = ttk.Button(frame,text = all[7],command = lambda : [path_get(),PG_window.destroy()])
+butto = ttk.Button(frame,text = all[7],command = PG_window.destroy)
 butto.grid(row = 1,column = 0)
 PG_window.mainloop()
 main_window = Tk(className = all[0])
