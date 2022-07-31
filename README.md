@@ -1,7 +1,7 @@
 Language : US | [CN](./README.zh-CN.md)
 <h1 align="center">Auto-make-PPT</h1>
 <div align="center">
-<img src = "https://img.shields.io/badge/version-0.0.1b4-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-b4"/>
+<img src = "https://img.shields.io/badge/version-0.0.1--release-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-b4"/>
 <img src = "https://img.shields.io/badge/Powered%20by-YangZhenxun-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "Powered by YangZhenxun"/>
 <br/>
 </div>
