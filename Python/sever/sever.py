@@ -9,5 +9,5 @@ s.listen()
 conn,addr = s.accept()
 while True:
     ret = conn.recv(2048)
-    if ret == b'Timed out:':
+    if ret == b'Error:Timedout':
         showerror('error','Github has a timeout!')
