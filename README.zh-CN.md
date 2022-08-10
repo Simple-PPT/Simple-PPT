@@ -1,13 +1,11 @@
 Language : [US](./README.md) | CN
-<h1 align="center">Auto-make-PPT</h1>
+<h1 align="center">Plite MP</h1>
 
 <div align="center">
-<img src = "https://img.shields.io/badge/version-0.0.1--release-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-release"/>
+<img src = "https://img.shields.io/badge/version-v0.0.1-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-release"/>
 <img src = "https://img.shields.io/badge/Powered%20by-YangZhenxun-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "Powered by YangZhenxun"/>
 <br/>
 </div>
-
-* 我们的项目正在开发中，是用<code>Python</code>开发的,希望您加入我们。
 <h2 align="center">简介</h2>
 觉得制作PPT太烦?一下子要做许多的PPT?如果你符合这些条件，你可以来尝试我们的程序:Auto-make-PPT。
 
