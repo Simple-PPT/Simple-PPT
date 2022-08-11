@@ -1,5 +1,5 @@
 Language : US | [CN](./README.zh-CN.md)
-<h1 align="center">Plite MP</h1>
+<h1 align="center">Simple PPT</h1>
 <div align="center">
 <img src = "https://img.shields.io/badge/version-v0.0.1-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-b4"/>
 <img src = "https://img.shields.io/badge/Powered%20by-YangZhenxun-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "Powered by YangZhenxun"/>
@@ -7,7 +7,7 @@ Language : US | [CN](./README.zh-CN.md)
 </div>
 <h2 align="center">Introduction</h2>
 
-Think making PPT is too annoying? Do a lot of PPT all at once? If you meet these conditions, you can try our program: Auto-make-PPT.
+Think making PPT is too annoying? Do a lot of PPT all at once? If you meet these conditions, you can try our program: Simple PPT.
 
 It can help you complete PPT faster. If you are not satisfied, you can modify the places you are not satisfied with - this greatly improves the efficiency of your PPT production.
 
