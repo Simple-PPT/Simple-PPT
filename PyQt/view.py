@@ -2,7 +2,7 @@
 Don't ask me why you can't find release_GUI.py.
 Because this is.
 
-Build with PyQt6.
+Build with PyQt6.3.1.
 Powered by YangZhenxun.
 version: v0.0.1 --PyQt
 name : Simple PPT(Auto make PPT)
@@ -11,6 +11,7 @@ Why name is "Simple PPT"?
 Because It can make PPT.
 """
 
+import json
 import os
 import sys
 import time
@@ -80,33 +81,32 @@ class Ui_MainWindow(QMainWindow):
         self.retranslateUi(MainWindow)
         self.pushButton.clicked.connect(self.show2)  # type: ignore
         self.pushButton_2.clicked.connect(lambda: self.show1(MainWindow))  # type: ignore
-        self.actionEnglish.changed.connect(self.show3)  # type: ignore
-        self.action_2.changed.connect(self.show4)  # type: ignore
+        self.actionEnglish.triggered.connect(self.show3)  # type: ignore
+        self.action_2.triggered.connect(self.show4)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow) -> None:
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Auto-make-PPT' s GUI"))
-        self.label.setText(_translate("MainWindow", "version:v0.0.1--PyQt"))
-        self.pushButton.setText(_translate("MainWindow", "check new"))
-        self.lineEdit.setText(_translate("MainWindow", ""))
-        self.label_2.setText(_translate("MainWindow", "Please input your write info.xlsx file's time:"))
-        self.pushButton_2.setText(_translate("MainWindow", "OK"))
-        self.menuLanguage.setTitle(_translate("MainWindow", "Language"))
-        self.new = _translate("MainWindow", "New")
-        self.H_N_V = _translate("MainWindow", "Have new version!")
-        self.T_D = _translate("MainWindow", "To download")
-        self.D_3 = _translate("MainWindow", "Do you want to download the new version?")
-        self.OK = _translate("MainWindow", "OK")
-        self.Y_4 = _translate("MainWindow", "Your version is new!")
-        self.github_E_Title = _translate("MainWindow", "Error")
-        self.github_E_Text = _translate("MainWindow", "'github.com 'has no response.")
-        self.T_U = _translate("MainWindow", "Timed up")
-        self.H_3 = _translate("MainWindow", "Have you finished writing the info.xlsx file?")
-        self.Done = _translate("MainWindow", "Done")
-        self.Y_3 = _translate("MainWindow", "Your PPT is done!")
-        self.E = _translate("MainWindow", "Error")
-        self.D_I = _translate("MainWindow", "Don't input string!")
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QtCore.QCoreApplication.translate("MainWindow", "Auto-make-PPT' s GUI"))
+        self.label.setText(QtCore.QCoreApplication.translate("MainWindow", "version:v0.0.1--PyQt"))
+        self.pushButton.setText(QtCore.QCoreApplication.translate("MainWindow", "check new"))
+        self.lineEdit.setText(QtCore.QCoreApplication.translate("MainWindow", ""))
+        self.label_2.setText(QtCore.QCoreApplication.translate("MainWindow", "Please input your write info.xlsx file's time:"))
+        self.pushButton_2.setText(QtCore.QCoreApplication.translate("MainWindow", "OK"))
+        self.menuLanguage.setTitle(QtCore.QCoreApplication.translate("MainWindow", "Language"))
+        self.new = QtCore.QCoreApplication.translate("MainWindow", "New")
+        self.H_N_V = QtCore.QCoreApplication.translate("MainWindow", "Have new version!")
+        self.T_D = QtCore.QCoreApplication.translate("MainWindow", "To download")
+        self.D_3 = QtCore.QCoreApplication.translate("MainWindow", "Do you want to download the new version?")
+        self.OK = QtCore.QCoreApplication.translate("MainWindow", "OK")
+        self.Y_4 = QtCore.QCoreApplication.translate("MainWindow", "Your version is new!")
+        self.github_E_Title = QtCore.QCoreApplication.translate("MainWindow", "Error")
+        self.github_E_Text = QtCore.QCoreApplication.translate("MainWindow", "'github.com 'has no response.")
+        self.T_U = QtCore.QCoreApplication.translate("MainWindow", "Timed up")
+        self.H_3 = QtCore.QCoreApplication.translate("MainWindow", "Have you finished writing the info.xlsx file?")
+        self.Done = QtCore.QCoreApplication.translate("MainWindow", "Done")
+        self.Y_3 = QtCore.QCoreApplication.translate("MainWindow", "Your PPT is done!")
+        self.E = QtCore.QCoreApplication.translate("MainWindow", "Error")
+        self.D_I = QtCore.QCoreApplication.translate("MainWindow", "Don't input string!")
 
     def show2(self):
         self.retranslateUi(self)
@@ -176,13 +176,25 @@ class Ui_MainWindow(QMainWindow):
                 time.sleep(1)
 
     def show3(self):
+        self.to_en_US()
         relese_system.system().write_en_US()
-        QMessageBox.information(self,"restart","It has been set, please restart the software.",QMessageBox.StandardButton.Yes,QMessageBox.StandardButton.Yes)
 
     def show4(self):
+        self.to_zh_Hans_CN()
         relese_system.system().write_zh_Hans_CN()
-        QMessageBox.information(self, "重启", "已经设置好了，请重启此软件。",
-                                QMessageBox.StandardButton.Yes, QMessageBox.StandardButton.Yes)
+
+    def to_en_US(self):
+        self.trans.load("./en-US")
+        _app = QApplication.instance()
+        _app.installTranslator(self.trans)
+        self.retranslateUi(self)
+
+    def to_zh_Hans_CN(self):
+        self.trans.load("./zh-Hans-CN")
+        _app = QApplication.instance()
+        _app.installTranslator(self.trans)
+        self.retranslateUi(self)
+
 
     def to_find(self):
         global ah
@@ -205,14 +217,32 @@ class Ui_MainWindow(QMainWindow):
             else:
                 return False
 
+    def load_language(self):
+        if not os.path.isfile("./info_server.json"):
+            with open("./info_server.json","w") as f:
+                json.dump({"APP":"Simple PPT","version":"v0.0.1","language":False},f)
+        else:
+            with open("info_server.json") as f:
+                l = json.load(f)
+                jl = json.dumps(l)
+                lj = json.loads(jl)
+
+                if lj["language"] == "en-US":
+                    self.to_en_US()
+                elif lj["language"] == "zh-Hans-CN":
+                    self.to_zh_Hans_CN()
+                else:
+                    self.to_en_US()
+
 
 def __main__():
     app = QApplication(sys.argv)
     main = Ui_MainWindow()
     relese_system.system().make_excel()
     main.to_find()
+    main.load_language()
     main.show()
-    QMessageBox.information(main, "info.xlsx", main.tr("The info.xlsx file is in %s and info.xlsx is done." % ah))
+    QMessageBox.information(main, "info.xlsx", QtCore.QCoreApplication.translate("context(Why?)","The info.xlsx file is in %s and info.xlsx is done.")% ah)
     sys.exit(app.exec())
 
 if __name__ == '__main__':
