@@ -18,9 +18,9 @@ import time
 import relese_system
 import requests
 
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import QTranslator
-from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import QTranslator
+from PySide6.QtWidgets import QMainWindow, QApplication, QMessageBox
 
 ah = ''
 
