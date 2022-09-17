@@ -20,15 +20,8 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGroupBox, QLabel,
     QMainWindow, QMenu, QMenuBar, QPushButton,
     QSizePolicy, QStatusBar, QWidget)
 
-from sys import (exit, argv)
-
-class Ui_MainWindow(QMainWindow):
-    def __init__(self):
-        super(Ui_MainWindow, self).__init__()
-        self.setupUi(self)
-        self.retranslateUi(self)
-
-    def setupUi(self, MainWindow:QMainWindow):
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(800, 600)
@@ -46,7 +39,7 @@ class Ui_MainWindow(QMainWindow):
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(20, 20, 75, 24))
         self.pushButton.setAutoDefault(False)
-        self.pushButton.setFlat(True)
+        self.pushButton.setFlat(False)
         self.groupBox_2 = QGroupBox(self.centralwidget)
         self.groupBox_2.setObjectName(u"groupBox_2")
         self.groupBox_2.setGeometry(QRect(140, 10, 651, 541))
@@ -59,7 +52,7 @@ class Ui_MainWindow(QMainWindow):
         self.comboBox.setGeometry(QRect(116, 20, 91, 22))
         self.groupBox_3 = QGroupBox(self.groupBox_2)
         self.groupBox_3.setObjectName(u"groupBox_3")
-        self.groupBox_3.setGeometry(QRect(20, 50, 120, 80))
+        self.groupBox_3.setGeometry(QRect(10, 50, 120, 80))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -85,7 +78,7 @@ class Ui_MainWindow(QMainWindow):
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
-    def retranslateUi(self, MainWindow:QMainWindow):
+    def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Simple PPT", None))
         self.actionAbout.setText(QCoreApplication.translate("MainWindow", u"About", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Function", None))
@@ -99,11 +92,3 @@ class Ui_MainWindow(QMainWindow):
         self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
     # retranslateUi
 
-def main():
-    app = QApplication(argv)
-    main = Ui_MainWindow()
-    main.show()
-    exit(app.exec())
-
-if __name__ == '__main__':
-    main()
