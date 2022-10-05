@@ -19,6 +19,7 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
 from PySide6.QtWidgets import (QApplication, QComboBox, QGroupBox, QLabel,
     QLineEdit, QMainWindow, QMenu, QMenuBar,
     QPushButton, QSizePolicy, QStatusBar, QWidget)
+from icon import Uisetup
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -27,7 +28,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(800, 600)
         MainWindow.setContextMenuPolicy(Qt.DefaultContextMenu)
         icon = QIcon()
-        icon.addFile(u"icon/favicon.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/favicon.ico", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
@@ -48,6 +49,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QRect(20, 20, 75, 24))
         self.pushButton.setAutoDefault(False)
         self.pushButton.setFlat(False)
+        self.pushButton.setDisabled(True)
         self.groupBox_2 = QGroupBox(self.centralwidget)
         self.groupBox_2.setObjectName(u"groupBox_2")
         self.groupBox_2.setGeometry(QRect(130, 10, 661, 541))
@@ -138,12 +140,13 @@ class Ui_MainWindow(object):
         self.menuEdit.addAction(self.actionQuit)
 
         self.retranslateUi(MainWindow)
-        self.actionAbout.triggered.connect(MainWindow.hide)
-        self.actionFeedback.triggered.connect(MainWindow.deleteLater)
-        self.actioncheckupdate.triggered.connect(MainWindow.update)
-        self.pushButton_2.clicked.connect(MainWindow.showFullScreen)
-        self.comboBox_2.currentTextChanged.connect(MainWindow.hide)
-        self.pushButton_3.clicked.connect(MainWindow.hide)
+        self.actionAbout.triggered.connect(self.ShowAbout)
+        self.actionFeedback.triggered.connect(self.OpenFeedback)
+        self.actioncheckupdate.triggered.connect(self.checkupdate)
+        self.pushButton_2.clicked.connect(self.chagefile)
+        self.comboBox_2.currentTextChanged.connect(self.titlestyle)
+        self.pushButton_3.clicked.connect(lambda:self.CreatPPT())
+        self.comboBox_4.currentTextChanged.connect(self.textstyle)
         self.actionQuit.triggered.connect(MainWindow.close)
 
         self.pushButton.setDefault(False)
