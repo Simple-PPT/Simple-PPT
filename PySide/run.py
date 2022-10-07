@@ -3,9 +3,8 @@ import sys
 from ui_NoDone import Ui_MainWindow
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from requests import session
+from requests import *
 import webbrowser
-import requests
 import lxml
 from bs4 import BeautifulSoup
 import fake_useragent
@@ -15,7 +14,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
         self.msgabout = QCoreApplication.translate("about", u"<h2>Simple PPT</h2>version:0.0.2<br/>It can make a PPT for you.<br/>More see:<a href=https://github.com/Simple-PPT/Simple-PPT>Github</a>", None)
-        self.version = 0.001
+        self.version = 0.0
         self.session = session()
         self.ua = fake_useragent.UserAgent()
 
@@ -26,19 +25,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         webbrowser.open_new("https://github.com/Simple-PPT/Simple-PPT/issues/new")
 
     def checkupdate(self):
-        newversion = self.session.get('https://api.github.com/repos/Simple-PPT/Simple-PPT/releases/latest').json()["tag_name"]
+        newversion = self.session.get('https://api.github.com/repos/Simple-PPT/Simple-PPT/releases/latest').json()
+        tagnewversion = newversion["tag_name"]
         try:
-            name = float(newversion)
+            tagname = float(newversion["tag_name"])
         except Exception as e:
             QMessageBox.critical(self, QCoreApplication.translate("MessageBox", u"Error", None), QCoreApplication.translate("MessageBox", u"Error:<br/>%s<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%e, QMessageBox.Yes)
         else:
-            if name > self.version:
-                to_update = QMessageBox.question(self, QCoreApplication.translate("MessageBox", u"New version", None), QCoreApplication.translate("MessageBox", u"Find a new version:%d.\nWould you like to update?", None)% name, buttons=QMessageBox.Yes|QMessageBox.No, defaultButton=QMessageBox.Yes)
+            if tagname > self.version:
+                to_update = QMessageBox.question(self, QCoreApplication.translate("MessageBox", u"New version", None), QCoreApplication.translate("MessageBox", u"Find a new version:%s.\nWould you like to update?", None)% tagnewversion, buttons=QMessageBox.Yes|QMessageBox.No, defaultButton=QMessageBox.Yes)
                 if to_update == QMessageBox.Yes:
-                    req = self.session.get("https://github.com/Simple-PPT/Simple-PPT/releases/tag/%s"%newversion, headers={"User-Agent":self.ua.random})
-                    bs = BeautifulSoup(req)
-                    so = bs.find()
-
+                    try:
+                        req = self.session.get("https://github.com/Simple-PPT/Simple-PPT/releases/tag/%s"%tagnewversion, headers={"User-Agent":self.ua.random})
+                    except exceptions.ConnectTimeout or exceptions.ReadTimeout or exceptions.ConnectionError:
+                        QMessageBox.warning(self, QCoreApplication.translate("MessageBox", u"Download time out", None), QCoreApplication.translate("MessageBox", u"Download time out.</br>Please try again.", None), QMessageBox.Ok)
+                    else:
+                        print(req.text)
+                        bs = BeautifulSoup(req.text, 'lxml')
+                        so = bs.find('a',attrs={"rel":"nofollow", "class":"Truncate"})
+                        downland_url = so.attrs['href']
+                        download = self.session.get(downland_url, headers={'User-Agent': self.ua.random}, stream=True)
+                        with open("installer.exe", 'wb') as f:
+                            for i in download.iter_content(1024):
+                                if i:
+                                    f.write(i)
             else:
                 QMessageBox.information(self, QCoreApplication.translate("MessageBox", u"No new version", None), QCoreApplication.translate("MessageBox", u"Your version is latest."), QMessageBox.Yes)
     def chagefile(self):
