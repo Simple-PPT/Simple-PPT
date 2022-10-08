@@ -42,9 +42,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                     else:
                         print(req.text)
                         bs = BeautifulSoup(req.text, 'lxml')
-                        so = bs.find('a',attrs={"rel":"nofollow", "class":"Truncate"})
-                        downland_url = so.attrs['href']
-                        download = self.session.get(downland_url, headers={'User-Agent': self.ua.random}, stream=True)
+                        so = bs.find('include-fragment',attrs={"loading":"lazy", "data-test-selector":"lazy-asset-list-fragment"})
+                        non_url = so.attrs['src']
+                        too = self.session.get(non_url, headers={'User-Agent': self.ua.random})
+                        so2 = bs.find()
+                        if os.path.basename(too_str).startswith():
                         with open("installer.exe", 'wb') as f:
                             for i in download.iter_content(1024):
                                 if i:
