@@ -1,13 +1,15 @@
 import os
+from subprocess import Popen
 import sys
 from ui_NoDone import Ui_MainWindow
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from requests import *
 import webbrowser
-import lxml
+import platform
 from bs4 import BeautifulSoup
 import fake_useragent
+import docx
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -17,6 +19,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.version = 0.0
         self.session = session()
         self.ua = fake_useragent.UserAgent()
+        self.arch, self.exe = platform.architecture()
 
     def ShowAbout(self):
         QMessageBox.about(self, "About Simple PPT 0.0.2", self.msgabout)
@@ -27,30 +30,51 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def checkupdate(self):
         newversion = self.session.get('https://api.github.com/repos/Simple-PPT/Simple-PPT/releases/latest').json()
         tagnewversion = newversion["tag_name"]
+        name = newversion["name"]
         try:
             tagname = float(newversion["tag_name"])
         except Exception as e:
-            QMessageBox.critical(self, QCoreApplication.translate("MessageBox", u"Error", None), QCoreApplication.translate("MessageBox", u"Error:<br/>%s<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%e, QMessageBox.Yes)
+            QMessageBox.critical(self, QCoreApplication.translate("MessageBox", u"Error", None), QCoreApplication.translate("MessageBox", u"Error:<br/>%s<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%e, QMessageBox.Ok)
         else:
             if tagname > self.version:
                 to_update = QMessageBox.question(self, QCoreApplication.translate("MessageBox", u"New version", None), QCoreApplication.translate("MessageBox", u"Find a new version:%s.\nWould you like to update?", None)% tagnewversion, buttons=QMessageBox.Yes|QMessageBox.No, defaultButton=QMessageBox.Yes)
                 if to_update == QMessageBox.Yes:
-                    try:
-                        req = self.session.get("https://github.com/Simple-PPT/Simple-PPT/releases/tag/%s"%tagnewversion, headers={"User-Agent":self.ua.random})
-                    except exceptions.ConnectTimeout or exceptions.ReadTimeout or exceptions.ConnectionError:
-                        QMessageBox.warning(self, QCoreApplication.translate("MessageBox", u"Download time out", None), QCoreApplication.translate("MessageBox", u"Download time out.</br>Please try again.", None), QMessageBox.Ok)
-                    else:
-                        print(req.text)
-                        bs = BeautifulSoup(req.text, 'lxml')
-                        so = bs.find('include-fragment',attrs={"loading":"lazy", "data-test-selector":"lazy-asset-list-fragment"})
-                        non_url = so.attrs['src']
-                        too = self.session.get(non_url, headers={'User-Agent': self.ua.random})
-                        so2 = bs.find()
-                        if os.path.basename(too_str).startswith():
-                        with open("installer.exe", 'wb') as f:
-                            for i in download.iter_content(1024):
-                                if i:
-                                    f.write(i)
+                    print(self.arch)
+                    if self.arch == '64bit':
+                        try:
+                            req = self.session.get("https://github.com/Simple-PPT/Simple-PPT/releases/download/%s/Simple-PPT_%s_x64_Setup.exe"%(tagnewversion, name), headers={"User-Agent":self.ua.random}, stream=True)
+                        except exceptions.ConnectTimeout or exceptions.ReadTimeout or exceptions.ConnectionError:
+                            QMessageBox.warning(self, QCoreApplication.translate("MessageBox", u"Download time out", None), QCoreApplication.translate("MessageBox", u"Download time out.</br>Please try again.", None), QMessageBox.Ok)
+                        else:
+                            if req.status_code == 200:
+                                downloadpath = os.path.basename("https://github.com/Simple-PPT/Simple-PPT/releases/download/%s/Simple-PPT_%s_x64_Setup.exe"%(tagnewversion, name))
+                                with open(downloadpath, 'wb') as f:
+                                    for i in req.iter_content(1024):
+                                        if i:
+                                            f.write(i)
+                                downloadfilefilepath = os.path.realpath(downloadpath)
+                                DFFP = downloadfilefilepath
+                                Popen(DFFP)
+                            else:
+                                QMessageBox.critical(self, QCoreApplication.translate("MessageBox", "Error", None), QCoreApplication.translate("MessageBox", "Error:<br/>We don't know why, error code %s.<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%req.status_code, QMessageBox.Ok)
+
+                    elif self.arch == '32bit':
+                        try:
+                            req = self.session.get("https://github.com/Simple-PPT/Simple-PPT/releases/download/%s/Simple-PPT_%s_x32_Setup.exe"%(tagnewversion, name), headers={'User-Agent':self.ua.random}, stream=True)
+                        except exceptions.ConnectTimeout or exceptions.ReadTimeout or exceptions.ConnectionError:
+                            QMessageBox.warning(self, QCoreApplication.translate("MessageBox", u"Download time out", None), QCoreApplication.translate("MessageBox", u"Download time out.</br>Please try again.", None), QMessageBox.Ok)
+                        else:
+                            if req.status_code == 200:
+                                downloadpath = os.path.basename("https://github.com/Simple-PPT/Simple-PPT/releases/download/%s/Simple-PPT_%s_x32_Setup.exe"%(tagnewversion, name))
+                                with open(downloadpath, 'wb') as f:
+                                    for i in req.iter_content(1024):
+                                        if i:
+                                            f.write(i)
+                                downloadfilefilepath = os.path.realpath(downloadpath)
+                                DFFP = downloadfilefilepath
+                                Popen(DFFP)
+                            else:
+                                QMessageBox.critical(self, QCoreApplication.translate("MessageBox", "Error", None), QCoreApplication.translate("MessageBox", "Error:<br/>We don't know why, error code %s.<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%req.status_code, QMessageBox.Ok)
             else:
                 QMessageBox.information(self, QCoreApplication.translate("MessageBox", u"No new version", None), QCoreApplication.translate("MessageBox", u"Your version is latest."), QMessageBox.Yes)
     def chagefile(self):
@@ -59,7 +83,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             pass
         else:
             if os.path.isfile(filePath):
-                pass
+                if filePath.endswith(".docx"):
+                    pass
             else:
                 QMessageBox.warning(self, QCoreApplication.translate("MessageBox", u"wrong file path", None), QCoreApplication.translate("MessageBox",u"The file's path is wrong!", None), QMessageBox.Yes)
 
