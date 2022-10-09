@@ -1,4 +1,4 @@
-Language : [US](./README.md) | CN
+语言 : [English(UK)](./README.md) | 中文（简体）| [中文（繁體）（台灣）](./README.zh-TW.md)
 <h1 align="center">Simple PPT</h1>
 
 <div align="center">
