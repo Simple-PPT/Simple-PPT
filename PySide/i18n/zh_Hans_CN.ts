@@ -177,11 +177,13 @@
         <location filename="../run.py" line="44"/>
         <location filename="../run.py" line="66"/>
         <location filename="../run.py" line="84"/>
+        <location filename="../run.py" line="124"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
         <location filename="../run.py" line="44"/>
+        <location filename="../run.py" line="124"/>
         <source>Error:&lt;br/&gt;%s&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;Feedback Error&lt;/a&gt;</source>
         <translation>错误：&lt;br/&gt;%s&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;反馈错误&lt;/a&gt;</translation>
     </message>
@@ -226,14 +228,24 @@ Would you like to update?</source>
         <translation>您的版本是最新的。</translation>
     </message>
     <message>
-        <location filename="../run.py" line="98"/>
+        <location filename="../run.py" line="103"/>
         <source>wrong file path</source>
         <translation>错误的文件路径</translation>
     </message>
     <message>
-        <location filename="../run.py" line="98"/>
+        <location filename="../run.py" line="103"/>
         <source>The file&apos;s path is wrong!</source>
         <translation>这个文件的路径是错的！</translation>
+    </message>
+    <message>
+        <location filename="../run.py" line="122"/>
+        <source>PPT ready</source>
+        <translation>PPT准备好了</translation>
+    </message>
+    <message>
+        <location filename="../run.py" line="122"/>
+        <source>Your PPT is ready!</source>
+        <translation>您的PPT制作好了！</translation>
     </message>
 </context>
 <context>

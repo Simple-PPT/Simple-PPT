@@ -183,11 +183,13 @@
         <location filename="../run.py" line="44"/>
         <location filename="../run.py" line="66"/>
         <location filename="../run.py" line="84"/>
+        <location filename="../run.py" line="124"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
         <location filename="../run.py" line="44"/>
+        <location filename="../run.py" line="124"/>
         <source>Error:&lt;br/&gt;%s&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;Feedback Error&lt;/a&gt;</source>
         <translation>Error:&lt;br/&gt;%s&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;Feedback Error&lt;/a&gt;</translation>
     </message>
@@ -226,14 +228,24 @@ Would you like to update?</translation>
         <translation>Your version is latest.</translation>
     </message>
     <message>
-        <location filename="../run.py" line="98"/>
+        <location filename="../run.py" line="103"/>
         <source>wrong file path</source>
         <translation>wrong file path</translation>
     </message>
     <message>
-        <location filename="../run.py" line="98"/>
+        <location filename="../run.py" line="103"/>
         <source>The file&apos;s path is wrong!</source>
         <translation>The file&apos;s path is wrong!</translation>
+    </message>
+    <message>
+        <location filename="../run.py" line="122"/>
+        <source>PPT ready</source>
+        <translation>PPT ready</translation>
+    </message>
+    <message>
+        <location filename="../run.py" line="122"/>
+        <source>Your PPT is ready!</source>
+        <translation>Your PPT is ready!</translation>
     </message>
 </context>
 <context>

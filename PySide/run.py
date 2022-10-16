@@ -86,31 +86,42 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 QMessageBox.information(self, QCoreApplication.translate("MessageBox", "No new version", None), QCoreApplication.translate("MessageBox", "Your version is latest."), QMessageBox.Yes)
     def chagefile(self):
         filePath, filetype = QFileDialog.getOpenFileName(self, QCoreApplication.translate("QFileDialog", "Open a file", None), r"c:\\", QCoreApplication.translate("QFileDialog", "Documentation(*.docx *.md)", None))
+        fileDir, name = os.path.split(filePath)
         if filePath == None or filePath == "":
             pass
         else:
             if os.path.isfile(filePath):
-                if filePath.endswith(".docx"):
-                    self.search_filePath([filePath, "docx"])
-                if filePath.endswith(".md"):
-                    pypandoc.convert_file(filePath, 'docx', 'md', outputfile='./file1.docx')
+                front_name, back_name = os.path.splitext(name)
+                if back_name == ".docx":
+                    self.filepath = filePath
+                if back_name == ".md":
+                    pypandoc.convert_file(filePath, 'docx', 'md', outputfile="%s.docx"%front_name)
+                    dirpath = os.path.dirname(os.path.abspath(__file__))
+                    self.filepath = "%s/%s.docx" %(dirpath, front_name)
+
             else:
                 QMessageBox.warning(self, QCoreApplication.translate("MessageBox", "wrong file path", None), QCoreApplication.translate("MessageBox","The file's path is wrong!", None), QMessageBox.Yes)
 
     def CreatPPT(self):
-        ppt = Presentation()
-        titlestyle = self.comboBox_2.currentIndex()
-        textstyle = self.comboBox_4.currentIndex()
-        title_slide = ppt.slides.add_slide(ppt.slide_layouts[titlestyle])
-        title = title_slide.shapes.title
-        title.text = self.lineEdit.text()
-        subtitle = title_slide.placeholders[1]
-        subtitle.text = self.lineEdit_2.text()
-
-    def search_filePath(self, *args):
-        self.filepath = args[0]
-        self.filetype = args[1]
-
+        try:
+            doc = docx.Document(self.filepath)
+            ppt = Presentation()
+            titlestyle = self.comboBox_2.currentIndex()
+            textstyle = self.comboBox_4.currentIndex()
+            title_slide = ppt.slides.add_slide(ppt.slide_layouts[titlestyle])
+            title = title_slide.shapes.title
+            title.text = self.lineEdit.text()
+            subtitle = title_slide.placeholders[1]
+            subtitle.text = self.lineEdit_2.text()
+            text_slide = ppt.slides.add_slide(ppt.slide_layouts[textstyle])
+            text = text_slide.placeholders[1].text_frame
+            for paragraph in doc.paragraphs:
+                paragraph_ppt = text.add_paragraph()
+                paragraph_ppt.text = paragraph.text
+            ppt.save("./ppts/%s.ppt"%title.text)
+            QMessageBox.information(self, QCoreApplication.translate("MessageBox", "PPT ready", None), QCoreApplication.translate("MessageBox", "Your PPT is ready!", None), QMessageBox.Yes)
+        except Exception as e:
+            QMessageBox.critical(self, QCoreApplication.translate("MessageBox", "Error", None), QCoreApplication.translate("MessageBox", "Error:<br/>%s<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%e, QMessageBox.Yes)
     def translate_to_en_UK(self):
         self.trans.load("./i18n/Eng_UK")
         _app = QApplication.instance()
