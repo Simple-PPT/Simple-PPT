@@ -376,6 +376,16 @@
     <property name="title">
      <string>Edit</string>
     </property>
+    <widget class="QMenu" name="menuLanguage">
+     <property name="title">
+      <string>Language</string>
+     </property>
+     <addaction name="actionEnglish_UK"/>
+     <addaction name="actionzh_hans_cn"/>
+     <addaction name="actionzh_hant_cn"/>
+    </widget>
+    <addaction name="menuLanguage"/>
+    <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuEdit"/>
@@ -403,6 +413,21 @@
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionEnglish_UK">
+   <property name="text">
+    <string>English(UK)</string>
+   </property>
+  </action>
+  <action name="actionzh_hans_cn">
+   <property name="text">
+    <string>中文（简体）</string>
+   </property>
+  </action>
+  <action name="actionzh_hant_cn">
+   <property name="text">
+    <string>中文（繁體）</string>
    </property>
   </action>
  </widget>

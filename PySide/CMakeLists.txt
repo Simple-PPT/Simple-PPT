@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.24)
+find_package(Python3)
+set (Python3_DIR, C:/Users/86139/AppData/Local/Programs/Python/Python39)
+set (PYTHON3_INCLUDE_DIR,C:/Users/86139/AppData/Local/Programs/Python/Python39/include)
+set (PYTHON3_LIBRARY, C:/Users/86139/AppData/Local/Programs/Python/Python39/Lib)
+project (SimplePPT python3)
+add_executable(Run run.py)
