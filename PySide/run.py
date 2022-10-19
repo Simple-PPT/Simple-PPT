@@ -20,6 +20,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.filepath = ""
+        self.dirpath = ""
         self.filetype = "docx"
         self.setupUi(self)
         self.trans = QTranslator()
@@ -95,9 +96,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 if back_name == ".docx":
                     self.filepath = filePath
                 if back_name == ".md":
-                    pypandoc.convert_file(filePath, 'docx', 'md', outputfile="%s.docx"%front_name)
-                    dirpath = os.path.dirname(os.path.abspath(__file__))
-                    self.filepath = "%s/%s.docx" %(dirpath, front_name)
+                    pypandoc.convert_file(filePath, 'docx', 'md', outputfile="docx/%s.docx"%front_name)
+                    self.dirpath = os.path.dirname(os.path.abspath(__file__))
+                    self.filepath = "%s/docx/%s.docx" %(self.dirpath, front_name)
 
             else:
                 QMessageBox.warning(self, QCoreApplication.translate("MessageBox", "wrong file path", None), QCoreApplication.translate("MessageBox","The file's path is wrong!", None), QMessageBox.Yes)
@@ -119,7 +120,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 paragraph_ppt = text.add_paragraph()
                 paragraph_ppt.text = paragraph.text
             ppt.save("./ppts/%s.ppt"%title.text)
-            QMessageBox.information(self, QCoreApplication.translate("MessageBox", "PPT ready", None), QCoreApplication.translate("MessageBox", "Your PPT is ready!", None), QMessageBox.Yes)
+            QMessageBox.information(self, QCoreApplication.translate("MessageBox", "PPT ready", None), QCoreApplication.translate("MessageBox", "Your PPT is ready!\nIt's in %s/ppts/%s", None)%(self.dirpath, self.lineEdit.text()), QMessageBox.Yes)
         except Exception as e:
             QMessageBox.critical(self, QCoreApplication.translate("MessageBox", "Error", None), QCoreApplication.translate("MessageBox", "Error:<br/>%s<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%e, QMessageBox.Yes)
     def translate_to_en_UK(self):

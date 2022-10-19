@@ -174,89 +174,95 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../run.py" line="54"/>
-        <location filename="../run.py" line="72"/>
+        <location filename="../run.py" line="55"/>
+        <location filename="../run.py" line="73"/>
         <source>Download time out</source>
         <translation>Download time out</translation>
     </message>
     <message>
-        <location filename="../run.py" line="44"/>
-        <location filename="../run.py" line="66"/>
-        <location filename="../run.py" line="84"/>
-        <location filename="../run.py" line="124"/>
+        <location filename="../run.py" line="45"/>
+        <location filename="../run.py" line="67"/>
+        <location filename="../run.py" line="85"/>
+        <location filename="../run.py" line="125"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../run.py" line="44"/>
-        <location filename="../run.py" line="124"/>
+        <location filename="../run.py" line="45"/>
+        <location filename="../run.py" line="125"/>
         <source>Error:&lt;br/&gt;%s&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;Feedback Error&lt;/a&gt;</source>
         <translation>Error:&lt;br/&gt;%s&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;Feedback Error&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../run.py" line="47"/>
+        <location filename="../run.py" line="48"/>
         <source>New version</source>
         <translation>New version</translation>
     </message>
     <message>
-        <location filename="../run.py" line="47"/>
+        <location filename="../run.py" line="48"/>
         <source>Find a new version:%s.
 Would you like to update?</source>
         <translation>Find a new version:%s.
 Would you like to update?</translation>
     </message>
     <message>
-        <location filename="../run.py" line="54"/>
-        <location filename="../run.py" line="72"/>
+        <location filename="../run.py" line="55"/>
+        <location filename="../run.py" line="73"/>
         <source>Download time out.&lt;/br&gt;Please try again.</source>
         <translation>Download time out.&lt;/br&gt;Please try again.</translation>
     </message>
     <message>
-        <location filename="../run.py" line="66"/>
-        <location filename="../run.py" line="84"/>
+        <location filename="../run.py" line="67"/>
+        <location filename="../run.py" line="85"/>
         <source>Error:&lt;br/&gt;We don&apos;t know why, error code %s.&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;Feedback Error&lt;/a&gt;</source>
         <translation>Error:&lt;br/&gt;We don&apos;t know why, error code %s.&lt;br/&gt;&lt;br/&gt;&lt;a href=https://github.com/Simple-PPT/Simple-PPT/issues/new&gt;Feedback Error&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../run.py" line="86"/>
+        <location filename="../run.py" line="87"/>
         <source>No new version</source>
         <translation>No new version</translation>
     </message>
     <message>
-        <location filename="../run.py" line="86"/>
+        <location filename="../run.py" line="87"/>
         <source>Your version is latest.</source>
         <translation>Your version is latest.</translation>
     </message>
     <message>
-        <location filename="../run.py" line="103"/>
+        <location filename="../run.py" line="104"/>
         <source>wrong file path</source>
         <translation>wrong file path</translation>
     </message>
     <message>
-        <location filename="../run.py" line="103"/>
+        <location filename="../run.py" line="104"/>
         <source>The file&apos;s path is wrong!</source>
         <translation>The file&apos;s path is wrong!</translation>
     </message>
     <message>
-        <location filename="../run.py" line="122"/>
+        <location filename="../run.py" line="123"/>
         <source>PPT ready</source>
         <translation>PPT ready</translation>
     </message>
     <message>
-        <location filename="../run.py" line="122"/>
+        <location filename="../run.py" line="123"/>
+        <source>Your PPT is ready!
+It&apos;s in %s/ppts/%s</source>
+        <translation>Your PPT is ready!
+It&apos;s in %s/ppts/%s</translation>
+    </message>
+    <message>
         <source>Your PPT is ready!</source>
-        <translation>Your PPT is ready!</translation>
+        <translation type="vanished">Your PPT is ready!</translation>
     </message>
 </context>
 <context>
     <name>QFileDialog</name>
     <message>
-        <location filename="../run.py" line="88"/>
+        <location filename="../run.py" line="89"/>
         <source>Open a file</source>
         <translation>Open a file</translation>
     </message>
     <message>
-        <location filename="../run.py" line="88"/>
+        <location filename="../run.py" line="89"/>
         <source>Documentation(*.docx *.md)</source>
         <translation>Documentation(*.docx *.md)</translation>
     </message>
@@ -264,12 +270,12 @@ Would you like to update?</translation>
 <context>
     <name>about</name>
     <message>
-        <location filename="../run.py" line="32"/>
+        <location filename="../run.py" line="33"/>
         <source>&lt;h2&gt;Simple PPT&lt;/h2&gt;version:0.0.2&lt;br/&gt;It can make a PPT for you.&lt;br/&gt;More see:&lt;a href=https://github.com/Simple-PPT/Simple-PPT&gt;Github&lt;/a&gt;</source>
         <translation>&lt;h2&gt;Simple PPT&lt;/h2&gt;version:0.0.2&lt;br/&gt;It can make a PPT for you.&lt;br/&gt;More see:&lt;a href=https://github.com/Simple-PPT/Simple-PPT&gt;Github&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../run.py" line="32"/>
+        <location filename="../run.py" line="33"/>
         <source>About Simple PPT 0.1</source>
         <translation>关于Simple PPT 0.1</translation>
     </message>
