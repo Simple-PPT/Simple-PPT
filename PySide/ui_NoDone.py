@@ -51,6 +51,7 @@ class Ui_MainWindow(object):
         self.groupBox.setGeometry(QRect(10, 10, 120, 541))
         self.pushButton = QPushButton(self.groupBox)
         self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setDisabled(True)
         self.pushButton.setGeometry(QRect(20, 20, 75, 24))
         self.pushButton.setAutoDefault(False)
         self.pushButton.setFlat(False)
