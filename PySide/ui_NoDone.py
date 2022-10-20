@@ -200,7 +200,7 @@ class Ui_MainWindow(object):
         self.comboBox_2.setItemText(10, QCoreApplication.translate("MainWindow", "Vertical headings and text", None))
 
         self.label_5.setText(QCoreApplication.translate("MainWindow", "text(.docx file or markdown)", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", "Chage file", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", "Change file", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", "Creat", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", "text style", None))
         self.comboBox_4.setItemText(0, QCoreApplication.translate("MainWindow", "Title Slide", None))

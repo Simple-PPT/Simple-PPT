@@ -4,169 +4,173 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../ui_NoDone.py" line="171"/>
+        <location filename="../ui_NoDone.py" line="172"/>
         <source>Simple PPT</source>
         <translation>Simple-PPT</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="172"/>
+        <location filename="../ui_NoDone.py" line="173"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="173"/>
+        <location filename="../ui_NoDone.py" line="174"/>
         <source>Feedback</source>
         <translation>反馈</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="174"/>
+        <location filename="../ui_NoDone.py" line="175"/>
         <source>checkupdate</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="175"/>
+        <location filename="../ui_NoDone.py" line="176"/>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="179"/>
+        <location filename="../ui_NoDone.py" line="180"/>
         <source>Function</source>
         <translation>功能</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="180"/>
         <location filename="../ui_NoDone.py" line="181"/>
+        <location filename="../ui_NoDone.py" line="182"/>
         <source>Creat PPT</source>
         <translation>生成PPT</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="182"/>
+        <location filename="../ui_NoDone.py" line="183"/>
         <source>format</source>
         <translation>格式</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="183"/>
+        <location filename="../ui_NoDone.py" line="184"/>
         <source>pptx</source>
         <translation>pptx</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="185"/>
+        <location filename="../ui_NoDone.py" line="186"/>
         <source>title page</source>
         <translation>标题页面</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="186"/>
+        <location filename="../ui_NoDone.py" line="187"/>
         <source>title text</source>
         <translation>标题文字</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="187"/>
+        <location filename="../ui_NoDone.py" line="188"/>
         <source>subtitle text</source>
         <translation>副标题文字</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="188"/>
+        <location filename="../ui_NoDone.py" line="189"/>
         <source>Style</source>
         <translation>风格</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="189"/>
-        <location filename="../ui_NoDone.py" line="205"/>
+        <location filename="../ui_NoDone.py" line="190"/>
+        <location filename="../ui_NoDone.py" line="206"/>
         <source>Title Slide</source>
         <translation>标题幻灯片</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="190"/>
-        <location filename="../ui_NoDone.py" line="206"/>
+        <location filename="../ui_NoDone.py" line="191"/>
+        <location filename="../ui_NoDone.py" line="207"/>
         <source>Title and Content</source>
         <translation>标题和内容</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="191"/>
-        <location filename="../ui_NoDone.py" line="207"/>
+        <location filename="../ui_NoDone.py" line="192"/>
+        <location filename="../ui_NoDone.py" line="208"/>
         <source>Section Header</source>
         <translation>节标题</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="192"/>
-        <location filename="../ui_NoDone.py" line="208"/>
+        <location filename="../ui_NoDone.py" line="193"/>
+        <location filename="../ui_NoDone.py" line="209"/>
         <source>Two Content</source>
         <translation>两栏内容</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="193"/>
-        <location filename="../ui_NoDone.py" line="209"/>
+        <location filename="../ui_NoDone.py" line="194"/>
+        <location filename="../ui_NoDone.py" line="210"/>
         <source>Comparison</source>
         <translation>比较</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="194"/>
-        <location filename="../ui_NoDone.py" line="210"/>
+        <location filename="../ui_NoDone.py" line="195"/>
+        <location filename="../ui_NoDone.py" line="211"/>
         <source>Title Only</source>
         <translation>仅标题</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="195"/>
-        <location filename="../ui_NoDone.py" line="211"/>
+        <location filename="../ui_NoDone.py" line="196"/>
+        <location filename="../ui_NoDone.py" line="212"/>
         <source>Blank</source>
         <translation>空白</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="196"/>
-        <location filename="../ui_NoDone.py" line="212"/>
+        <location filename="../ui_NoDone.py" line="197"/>
+        <location filename="../ui_NoDone.py" line="213"/>
         <source>Content with Caption</source>
         <translation>内容与标题</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="197"/>
-        <location filename="../ui_NoDone.py" line="213"/>
+        <location filename="../ui_NoDone.py" line="198"/>
+        <location filename="../ui_NoDone.py" line="214"/>
         <source>Pictrue with Caption</source>
         <translation>图片与标题</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="198"/>
-        <location filename="../ui_NoDone.py" line="214"/>
+        <location filename="../ui_NoDone.py" line="199"/>
+        <location filename="../ui_NoDone.py" line="215"/>
         <source>Title and vertical text</source>
         <translation>标题与竖排文字</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="199"/>
-        <location filename="../ui_NoDone.py" line="215"/>
+        <location filename="../ui_NoDone.py" line="200"/>
+        <location filename="../ui_NoDone.py" line="216"/>
         <source>Vertical headings and text</source>
         <translation>竖排标题与文本</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="201"/>
+        <location filename="../ui_NoDone.py" line="202"/>
         <source>text(.docx file or markdown)</source>
         <translation>文本文件（.docx或markdown）</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="202"/>
-        <source>Chage file</source>
+        <location filename="../ui_NoDone.py" line="203"/>
+        <source>Change file</source>
         <translation>选择文件</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="203"/>
+        <source>Chage file</source>
+        <translation type="vanished">选择文件</translation>
+    </message>
+    <message>
+        <location filename="../ui_NoDone.py" line="204"/>
         <source>Creat</source>
         <translation>创造</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="204"/>
+        <location filename="../ui_NoDone.py" line="205"/>
         <source>text style</source>
         <translation>正文风格</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="217"/>
+        <location filename="../ui_NoDone.py" line="218"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="218"/>
+        <location filename="../ui_NoDone.py" line="219"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../ui_NoDone.py" line="219"/>
+        <location filename="../ui_NoDone.py" line="220"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
