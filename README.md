@@ -1,4 +1,4 @@
-Language : US | [CN](./README.zh-CN.md)
+Language : English(UK) | [中文（简体）](./README.zh-CN.md) | [中文（繁體）](./README.zh-TW.md)
 <h1 align="center">Simple PPT</h1>
 <div align="center">
 <img src = "https://img.shields.io/badge/version-v0.0.1-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-b4"/>
