@@ -119,8 +119,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             for paragraph in doc.paragraphs:
                 paragraph_ppt = text.add_paragraph()
                 paragraph_ppt.text = paragraph.text
-            ppt.save("./ppts/%s.ppt"%title.text)
-            QMessageBox.information(self, QCoreApplication.translate("MessageBox", "PPT ready", None), QCoreApplication.translate("MessageBox", "Your PPT is ready!\nIt's in %s/ppts/%s", None)%(self.dirpath, self.lineEdit.text()), QMessageBox.Yes)
+            ppt.save("./ppts/%s.pptx"%title.text)
+            QMessageBox.information(self, QCoreApplication.translate("MessageBox", "PPT ready", None), QCoreApplication.translate("MessageBox", "Your PPT is ready!\nIt's in %s/ppts/%s.pptx", None)%(os.path.dirname(os.path.abspath(__file__)), self.lineEdit.text()), QMessageBox.Yes)
         except Exception as e:
             QMessageBox.critical(self, QCoreApplication.translate("MessageBox", "Error", None), QCoreApplication.translate("MessageBox", "Error:<br/>%s<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%e, QMessageBox.Yes)
     def translate_to_en_UK(self):
