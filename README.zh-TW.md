@@ -2,7 +2,7 @@
 <h1 align="center">Simple PPT</h1>
 
 <div align="center">
-<img src = "https://img.shields.io/badge/version-v0.0.1-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.0.1-release"/>
+<img src = "https://img.shields.io/badge/version-0.1-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "version:0.1"/>
 <img src = "https://img.shields.io/badge/Powered%20by-YangZhenxun-%3Fstyle%3Dflat--square%26logo%3Dappveyor" alt = "Powered by YangZhenxun"/>
 <br/>
 </div>

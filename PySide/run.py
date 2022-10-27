@@ -3,8 +3,6 @@ import platform
 import sys
 import webbrowser
 from subprocess import Popen
-
-import cmake
 import docx
 import fake_useragent
 from bs4 import BeautifulSoup
@@ -148,4 +146,6 @@ def main():
     win.show()
     sys.exit(app.exec())
 
-main()
+
+if __name__ == "__main__":
+    main()
