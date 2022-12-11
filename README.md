@@ -13,7 +13,7 @@ It can help you complete PPT faster. If you are not satisfied, you can modify th
 
 <h3 align="center">Production process</h3>
 
-Before making PPT automatically, you have to follow its prompts to fill in the ***automatically created*** ***info.xlsx file***, save it, and follow its prompts to create step by step, and you're done!
+Making PPT automatically, follow its prompts to create step by step, and you're done!
 
 <h3 align="center">Feedback</h3>
 
