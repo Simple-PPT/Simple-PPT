@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'NoDone.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.2
+## Created by: Qt User Interface Compiler version 6.7.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -19,19 +19,19 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
 from PySide6.QtWidgets import (QApplication, QComboBox, QGroupBox, QLabel,
     QLineEdit, QMainWindow, QMenu, QMenuBar,
     QPushButton, QSizePolicy, QStatusBar, QWidget)
-from icon import Uisetup
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(800, 600)
-        MainWindow.setContextMenuPolicy(Qt.DefaultContextMenu)
+        MainWindow.setContextMenuPolicy(Qt.ContextMenuPolicy.DefaultContextMenu)
         icon = QIcon()
-        icon.addFile(u":/icon/favicon.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"icon/favicon.ico", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
-        self.actionAbout.setMenuRole(QAction.TextHeuristicRole)
+        self.actionAbout.setMenuRole(QAction.MenuRole.TextHeuristicRole)
         self.actionFeedback = QAction(MainWindow)
         self.actionFeedback.setObjectName(u"actionFeedback")
         self.actioncheckupdate = QAction(MainWindow)
@@ -51,7 +51,6 @@ class Ui_MainWindow(object):
         self.groupBox.setGeometry(QRect(10, 10, 120, 541))
         self.pushButton = QPushButton(self.groupBox)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setDisabled(True)
         self.pushButton.setGeometry(QRect(20, 20, 75, 24))
         self.pushButton.setAutoDefault(False)
         self.pushButton.setFlat(False)
@@ -126,14 +125,15 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 22))
-        self.menuHelp = QMenu(self.menubar)
+        self.menubar.setGeometry(QRect(0, 0, 800, 33))
+        self.menuHelp = QMenu(MainWindow)
         self.menuHelp.setObjectName(u"menuHelp")
         self.menuHelp.setToolTipsVisible(False)
-        self.menuEdit = QMenu(self.menubar)
+        self.menuEdit = QMenu(MainWindow)
         self.menuEdit.setObjectName(u"menuEdit")
-        self.menuLanguage = QMenu(self.menuEdit)
+        self.menuLanguage = QMenu(MainWindow)
         self.menuLanguage.setObjectName(u"menuLanguage")
+        self.menuEdit.addMenu(self.menuLanguage)
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -152,15 +152,15 @@ class Ui_MainWindow(object):
         self.menuLanguage.addAction(self.actionzh_hant_cn)
 
         self.retranslateUi(MainWindow)
-        self.actionAbout.triggered.connect(self.ShowAbout)
-        self.actionFeedback.triggered.connect(self.OpenFeedback)
-        self.actionEnglish_UK.triggered.connect(self.translate_to_en_UK)
-        self.actionzh_hans_cn.triggered.connect(self.translate_to_zh_hans)
-        self.actionzh_hant_cn.triggered.connect(self.translate_to_zh_hant)
-        self.actioncheckupdate.triggered.connect(self.checkupdate)
-        self.pushButton_2.clicked.connect(self.chagefile)
-        self.pushButton_3.clicked.connect(self.CreatPPT)
+        self.actionAbout.triggered.connect(MainWindow.ShowAbout)
+        self.actionFeedback.triggered.connect(MainWindow.OpenFeedback)
+        self.actioncheckupdate.triggered.connect(MainWindow.checkupdate)
+        self.pushButton_2.clicked.connect(MainWindow.chagefile)
+        self.pushButton_3.clicked.connect(MainWindow.CreatPPT)
         self.actionQuit.triggered.connect(MainWindow.close)
+        self.actionEnglish_UK.triggered.connect(MainWindow.translate_to_en_UK)
+        self.actionzh_hans_cn.triggered.connect(MainWindow.translate_to_zh_hans)
+        self.actionzh_hant_cn.triggered.connect(MainWindow.translate_to_zh_hant)
 
         self.pushButton.setDefault(False)
 
@@ -172,16 +172,16 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", "Simple PPT", None))
         self.actionAbout.setText(QCoreApplication.translate("MainWindow", "About", None))
         self.actionFeedback.setText(QCoreApplication.translate("MainWindow", "Feedback", None))
-        self.actioncheckupdate.setText(QCoreApplication.translate("MainWindow", "checkupdate", None))
+        self.actioncheckupdate.setText(QCoreApplication.translate("MainWindow", "Check Update", None))
         self.actionQuit.setText(QCoreApplication.translate("MainWindow", "Quit", None))
-        self.actionEnglish_UK.setText("English(UK)")
-        self.actionzh_hans_cn.setText("中文（简体）")
-        self.actionzh_hant_cn.setText("中文（繁體）")
+        self.actionEnglish_UK.setText(QCoreApplication.translate("MainWindow", "English(UK)", None))
+        self.actionzh_hans_cn.setText(QCoreApplication.translate("MainWindow", "\u4e2d\u6587\uff08\u7b80\u4f53\uff09", None))
+        self.actionzh_hant_cn.setText(QCoreApplication.translate("MainWindow", "\u4e2d\u6587\uff08\u7e41\u9ad4\uff09", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", "Function", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", "Creat PPT", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", "Creat PPT", None))
         self.label.setText(QCoreApplication.translate("MainWindow", "format", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow",  "pptx", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", "pptx", None))
 
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", "title page", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", "title text", None))
@@ -200,7 +200,7 @@ class Ui_MainWindow(object):
         self.comboBox_2.setItemText(10, QCoreApplication.translate("MainWindow", "Vertical headings and text", None))
 
         self.label_5.setText(QCoreApplication.translate("MainWindow", "text(.docx file or markdown)", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", "Change file", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", "Chage file", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", "Creat", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", "text style", None))
         self.comboBox_4.setItemText(0, QCoreApplication.translate("MainWindow", "Title Slide", None))
@@ -219,4 +219,3 @@ class Ui_MainWindow(object):
         self.menuEdit.setTitle(QCoreApplication.translate("MainWindow", "Edit", None))
         self.menuLanguage.setTitle(QCoreApplication.translate("MainWindow", "Language", None))
     # retranslateUi
-

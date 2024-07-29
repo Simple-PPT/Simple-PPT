@@ -34,7 +34,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         webbrowser.open_new("https://github.com/Simple-PPT/Simple-PPT/issues/new")
 
     def checkupdate(self):
-        newversion = self.session.get('https://api.github.com/repos/Simple-PPT/Simple-PPT/releases/latest').json()
+        newversion = self.session.get('https://api.github.com/repos/YangZhenxun/Simple-PPT/releases/latest').json()
         tagnewversion = newversion["tag_name"]
         name = newversion["name"]
         try:
@@ -48,12 +48,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                     print(self.arch)
                     if self.arch == '64bit':
                         try:
-                            req = self.session.get("https://github.com/Simple-PPT/Simple-PPT/releases/download/%s/Simple-PPT_%s_x64_Setup.exe"%(tagnewversion, name), headers={"User-Agent":self.ua.random}, stream=True)
+                            req = self.session.get("https://github.com/YangZhenxun/Simple-PPT/releases/download/%s/Simple-PPT_%s_x64_Setup.exe"%(tagnewversion, name), headers={"User-Agent":self.ua.random}, stream=True)
                         except exceptions.ConnectTimeout or exceptions.ReadTimeout or exceptions.ConnectionError:
                             QMessageBox.warning(self, QCoreApplication.translate("MessageBox", "Download time out", None), QCoreApplication.translate("MessageBox", "Download time out.</br>Please try again.", None), QMessageBox.Ok)
                         else:
                             if req.status_code == 200:
-                                downloadpath = os.path.basename("https://github.com/Simple-PPT/Simple-PPT/releases/download/%s/Simple-PPT_%s_x64_Setup.exe"%(tagnewversion, name))
+                                downloadpath = os.path.basename("https://github.com/YangZhenxun/Simple-PPT/releases/download/%s/Simple-PPT_%s_x64_Setup.exe"%(tagnewversion, name))
                                 with open(downloadpath, 'wb') as f:
                                     for i in req.iter_content(1024):
                                         if i:
@@ -94,9 +94,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 if back_name == ".docx":
                     self.filepath = filePath
                 if back_name == ".md":
-                    pypandoc.convert_file(filePath, 'docx', 'md', outputfile="docx/%s.docx"%front_name)
+                    pypandoc.convert_file(filePath, 'docx', 'md', outputfile=f"docx/{front_name}.docx")
                     self.dirpath = os.path.dirname(os.path.abspath(__file__))
-                    self.filepath = "%s/docx/%s.docx" %(self.dirpath, front_name)
+                    self.filepath = f"{self.dirpath}/docx/{front_name}.docx"
 
             else:
                 QMessageBox.warning(self, QCoreApplication.translate("MessageBox", "wrong file path", None), QCoreApplication.translate("MessageBox","The file's path is wrong!", None), QMessageBox.Yes)
@@ -117,7 +117,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             for paragraph in doc.paragraphs:
                 paragraph_ppt = text.add_paragraph()
                 paragraph_ppt.text = paragraph.text
-            ppt.save("./ppts/%s.pptx"%title.text)
+            ppt.save(f"./ppts/{title.text}.pptx")
             QMessageBox.information(self, QCoreApplication.translate("MessageBox", "PPT ready", None), QCoreApplication.translate("MessageBox", "Your PPT is ready!\nIt's in %s/ppts/%s.pptx", None)%(os.path.dirname(os.path.abspath(__file__)), self.lineEdit.text()), QMessageBox.Yes)
         except Exception as e:
             QMessageBox.critical(self, QCoreApplication.translate("MessageBox", "Error", None), QCoreApplication.translate("MessageBox", "Error:<br/>%s<br/><br/><a href=https://github.com/Simple-PPT/Simple-PPT/issues/new>Feedback Error</a>", None)%e, QMessageBox.Yes)

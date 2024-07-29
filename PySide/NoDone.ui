@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="contextMenuPolicy">
-   <enum>Qt::DefaultContextMenu</enum>
+   <enum>Qt::ContextMenuPolicy::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
    <string>Simple PPT</string>
@@ -27,7 +27,7 @@
       <x>10</x>
       <y>10</y>
       <width>120</width>
-      <height>541</height>
+      <height>531</height>
      </rect>
     </property>
     <property name="title">
@@ -62,7 +62,7 @@
       <x>130</x>
       <y>10</y>
       <width>661</width>
-      <height>541</height>
+      <height>531</height>
      </rect>
     </property>
     <property name="title">
@@ -358,7 +358,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>33</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -397,7 +397,7 @@
     <string>About</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::TextHeuristicRole</enum>
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
    </property>
   </action>
   <action name="actionFeedback">
@@ -407,7 +407,7 @@
   </action>
   <action name="actioncheckupdate">
    <property name="text">
-    <string>checkupdate</string>
+    <string>Check Update</string>
    </property>
   </action>
   <action name="actionQuit">
