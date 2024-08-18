@@ -69,6 +69,10 @@ class PPT:
         tmp.unlink()
         self.save()
     
+    def set_title(self, title: str):
+        self.power_point.slides[self.now_page - 1].shapes.title.text = title
+        self.save()
+    
     def allpages(self, idx: int, slide = 0):
         self.all_pages = idx
         while self.all_pages > self.get_ppt_pages():
