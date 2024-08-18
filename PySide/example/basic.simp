@@ -1,0 +1,3 @@
+ppt = PPT("hello")
+ppt.page(1)
+ppt.write_str("hello")
